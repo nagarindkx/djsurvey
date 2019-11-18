@@ -1,0 +1,9 @@
+Django==2.2.6
+gunicorn==19.9.0
+python-dateutil==2.8.0
+whitenoise==4.1.4
+django-crispy-forms
+psycopg2-binary
+django-bootstrap-datepicker-plus
+django-widget-tweaks
+django-form-tags
