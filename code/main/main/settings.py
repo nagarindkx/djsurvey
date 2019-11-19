@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',os.getenv('PUBLIC_URL')]
 
-
 # Application definition
 
 INSTALLED_APPS = [
