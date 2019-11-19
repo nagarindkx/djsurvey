@@ -24,8 +24,9 @@ SECRET_KEY = 'ny6(zrx9x6h9svq8z75bs2lyd21m+lgjgz+smtu_+7%_ssk-3o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost',os.getenv('PUBLIC_URL')]
 
 
 # Application definition
@@ -39,6 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+INSTALLED_APPS += [
+    'crispy_forms',
+    'bootstrap_datepicker_plus',
+]
+
+INSTALLED_APPS += [
+    'home',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,12 +59,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Whitenoise
+MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware',]
+
 ROOT_URLCONF = 'main.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
@@ -118,3 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL='/'
