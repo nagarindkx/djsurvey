@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',os.getenv('PUBLIC_URL')]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # Whitenoise must be here
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
@@ -51,6 +52,8 @@ INSTALLED_APPS += [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Whitenoise must be here
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -59,8 +62,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Whitenoise
-MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware',]
 
 ROOT_URLCONF = 'main.urls'
 
