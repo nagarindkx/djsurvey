@@ -48,6 +48,7 @@ INSTALLED_APPS += [
 
 INSTALLED_APPS += [
     'home',
+    'survey', # <-- เพิ่มตรงนี้
 ]
 
 MIDDLEWARE = [
