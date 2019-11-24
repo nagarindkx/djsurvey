@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 from home.views import home_index
 
-from survey.views import SurveyCreate
+from survey.views import SurveyCreate,AdvancedSurveyCreate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +29,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('survey/', SurveyCreate.as_view(),name="newSurvey")
+    path('survey/', SurveyCreate.as_view(),name="newSurvey"),
+    path('advancedsurvey/', AdvancedSurveyCreate.as_view(),name="newAdvancedSurvey")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
